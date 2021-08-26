@@ -1,0 +1,27 @@
+<h1>Hello, Fizz Buzz!</h1>
+
+<div>
+  <label>Enter number(s): </label>
+  <div class="md-form">
+    <textarea type="text" id="text1" name="inputText" [(ngModel)]="inputText" class="md-textarea form-control"></textarea>
+    <label for="text1">Enter comma separted numbers,if you want to verify more than one number.</label>
+    <div class="row">
+      <div class="col-md-1">
+        <button value="submit" [disabled]="!inputText" (click)="fetchData()" class="btn btn-default btn-primary" [class.spinner]="loading" >Submit</button>
+      </div>
+      <div class="col-md-1">
+        <button value="submit" [disabled]="!inputText" (click)="clearData()" class="btn btn-default btn-primary">Clear</button>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div>
+  
+
+    <app-fetch-data *ngIf="showData"></app-fetch-data>
+  </div>
+  
+</div>
+
+
+

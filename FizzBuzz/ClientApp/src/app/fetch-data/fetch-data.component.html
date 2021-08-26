@@ -1,0 +1,24 @@
+
+
+<h3 *ngIf="resultNumbers">Result Data</h3>
+<br />
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="resultNumbers">
+  <thead>
+    <tr>
+      <th>Input</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let num of resultNumbers">
+      <td>{{ num.number }}</td>
+      <td>
+        <ul class="list-unstyled">
+          <li *ngFor="let item of num.result; let i = index">
+            {{item}}
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>

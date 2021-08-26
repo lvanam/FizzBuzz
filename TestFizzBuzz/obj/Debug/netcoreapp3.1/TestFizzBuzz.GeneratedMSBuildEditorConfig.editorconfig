@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = TestFizzBuzz
+build_property.ProjectDir = C:\Projects\FizzBuzz\TestFizzBuzz\
