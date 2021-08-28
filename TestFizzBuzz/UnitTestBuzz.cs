@@ -54,7 +54,7 @@ namespace TestBuzzBuzz
             Calculate c = new Calculate();
             var expectedResult = c.CalcualteNumber(fp.Object);
 
-            Assert.AreEqual(expectedResult, Constants.Buzz);
+            Assert.AreEqual(expectedResult, Constants.InvalidItem);
         }
 
         [TestMethod]

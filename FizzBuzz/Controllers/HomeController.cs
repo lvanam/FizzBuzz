@@ -21,17 +21,27 @@ namespace FizzBuzz.Controllers
         }
 
         [HttpPost]
-        public IEnumerable<FizzBuzzModel> Post([FromBody] Payload payload)
+        public IActionResult Post([FromBody] Payload payload)
         {
-            var numbers = payload.Data.Split(",");
-            
-            var result =  numbers.Select(number => new FizzBuzzModel
+            _logger.LogInformation(payload.Data);
+            try
             {
-                Number = !string.IsNullOrWhiteSpace(number) && !string.IsNullOrEmpty(number) ? number : "<Empty>",
-                Result = GetResult(number)
-            }).ToArray();
+                var numbers = payload.Data.Split(",");
 
-            return result;
+                var result = numbers.Select(number => new FizzBuzzModel
+                {
+                    Number = !string.IsNullOrWhiteSpace(number) && !string.IsNullOrEmpty(number) ? number : "<Empty>",
+                    Result = GetResult(number)
+                }).ToArray();
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return StatusCode(500,"Internal server error");
+            }
+            
         }
 
         private IEnumerable<string> GetResult(string number)

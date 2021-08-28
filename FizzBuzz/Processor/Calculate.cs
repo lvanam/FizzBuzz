@@ -16,7 +16,7 @@ namespace FizzBuzz.Processor
         /// <returns></returns>
         private bool Validate(string number)
         {
-            return !string.IsNullOrEmpty(number) && !string.IsNullOrWhiteSpace(number) && Int64.TryParse(number, out long longNumber);
+            return !string.IsNullOrEmpty(number) && !string.IsNullOrWhiteSpace(number) && Int64.TryParse(number, out long longNumber) && longNumber != 0;
         }
 
         /// <summary>
